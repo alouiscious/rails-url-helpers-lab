@@ -13,7 +13,7 @@ class StudentsController < ApplicationController
   end
 
   def activate
-    Student.create(params[:students])
+    @student = Student.create(params[:students])
     set_student
     if @student.active 
       !@student.active
