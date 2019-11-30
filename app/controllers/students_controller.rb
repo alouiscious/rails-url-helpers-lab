@@ -6,20 +6,24 @@ class StudentsController < ApplicationController
   # binding.pry
   end
 
-
-  def show
-    set_student
+  def new
 
   end
 
-  def activate
-    @student = Student.create(params[:students])
+
+  def show
     set_student
-    if @student.active 
-      !@student.active
-    elsif !@student.active 
-      @student.active
-    end
+    
+  end
+
+  def activate
+    set_student
+    @student.active = !@student.active
+    # if @student.active 
+    #   !@student.active
+    # elsif !@student.active 
+    #   @student.active
+    # end
     @student.save 
     redirect_to student_path(@student)
   end
